@@ -1,0 +1,65 @@
+config.ini.example -> config.ini
+
+
+Problem:
+Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the
+  system variable OPENSSL_ROOT_DIR (missing: OPENSSL_INCLUDE_DIR)
+
+Not found OPENSSL
+
+Solution:
+cmake -DOPENSSL_ROOT_DIR=/usr/local/ssl -DOPENSSL_LIBRARIES=/usr/local/ssl/lib
+https://stackoverflow.com/questions/16248775/cmake-not-able-to-find-openssl-library
+
+Problem:
+Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the
+  system variable OPENSSL_ROOT_DIR (missing: OPENSSL_INCLUDE_DIR)
+
+
+Warning: openssl 1.0.2r is already installed, it's just not linked
+You can use `brew link openssl` to link this version.
+MacBook-Pro-Dima:PatternsCollection dima_zapolsky$ brew link openssl
+Warning: Refusing to link macOS-provided software: openssl
+If you need to have openssl first in your PATH run:
+  echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.bash_profile
+
+For compilers to find openssl you may need to set:
+  export LDFLAGS="-L/usr/local/opt/openssl/lib"
+  export CPPFLAGS="-I/usr/local/opt/openssl/include"
+MacBook-Pro-Dima:PatternsCollection dima_zapolsky$ 
+
+Solution:
+export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
+
+Problem:
+Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE)
+Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Could NOT find GSASL (missing: GSASL_LIBRARIES GSASL_INCLUDE_DIR) 
+-- Could NOT find GnuTLS (missing: GNUTLS_LIBRARY GNUTLS_INCLUDE_DIR) 
+
+Solution:
+Brew install doxygen
+Brew install png-config
+Brew install gsasl
+Brew install gnutls
+
+Problem:
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+
+Solution:
+brew unlink boost
+brew link boost@1.60 --force
+
+Problem:
+dyld: Library not loaded: libinicpp.dylib
+  Referenced from: /Users/dima_zapolsky/Desktop/prog/bin/Decorator
+  Reason: image not found
+Abort trap: 6
+
+Solution:
+Brew install node
+Brew update
+Brew upgrade
+brew install libpng
+brew install openldap
